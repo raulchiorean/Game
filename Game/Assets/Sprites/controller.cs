@@ -14,8 +14,7 @@ public class controller : MonoBehaviour
     float groundRadius = 0.2f;
     public LayerMask whatIsGround;
 
-    //fly
-    public bool fly = false;
+  
 
 
     Animator anim;
@@ -43,10 +42,7 @@ public class controller : MonoBehaviour
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
-        if (grounded)
-        {
-            fly = false;
-        }
+        
 
         if (move > 0 && !facingRight)
         {
