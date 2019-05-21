@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Zombi
+  - Coin
   layers:
   - Default
   - TransparentFX

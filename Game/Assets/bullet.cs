@@ -18,9 +18,12 @@ public class bullet : MonoBehaviour
         EnemyHP hp = collision.GetComponent<EnemyHP>();
         Transform target = hp.transform;
         hp.knockBack();
+        GameObject contr = GameObject.FindWithTag("Player");
+        controller c = contr.GetComponent<controller>();
+        
         if (hp != null)
         {
-            hp.getDmg(10);
+            hp.getDmg(c.strength);
         }
         Debug.Log(collision);
         Destroy(gameObject);

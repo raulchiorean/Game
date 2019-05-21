@@ -14,7 +14,7 @@ public class DB_update : MonoBehaviour
     ///  : gameObject.GetComponent<DB_update>."numefunctie"(param 1, param2, etc...);
     /// 
     /// </summary>
-    /// <param name="dbName"></param>
+ 
     // connect to db;
     public void db_connect(string dbName)
     {
@@ -30,6 +30,7 @@ public class DB_update : MonoBehaviour
         db_connect(dbName);
         IDbCommand db_strength_update = this.conn.CreateCommand();
         db_strength_update.CommandText = "UPDATE " + tableName + "SET strength = " + new_strength + " WHERE name = " + name;
+        db_strength_update.ExecuteNonQuery();
         this.conn.Close();
     }
 
@@ -59,6 +60,7 @@ public class DB_update : MonoBehaviour
         db_connect(dbName);
         IDbCommand db_deletePlayer = this.conn.CreateCommand();
         db_deletePlayer.CommandText = "DELETE FROM player_stats WHERE name = " + "'" + name + "';";
+        db_deletePlayer.ExecuteNonQuery();
         this.conn.Close();
     }
 
@@ -68,11 +70,13 @@ public class DB_update : MonoBehaviour
         db_connect(dbName);
         IDbCommand db_deleteAll = this.conn.CreateCommand();
         db_deleteAll.CommandText = "DELETE * FROM " + tableName;
+        db_deleteAll.ExecuteNonQuery();
         this.conn.Close();
     }
 
     void Start()
     {
+        db_addPlayer("mom", 2,5,"Player_DB");
 
     }
 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class controller : MonoBehaviour
 {
     public float maxSpeed = 10f;
@@ -24,13 +23,15 @@ public class controller : MonoBehaviour
 
     public float jumpForce = 700f;
 
+    public float strength = 10;
+
     void Start()
     {
         anim = GetComponent<Animator>();
-        gameObject.GetComponent<DB_update>().db_addPlayer("Vasile", 100, 50, "Player_DB");
-      
-        
-        
+    }
+    public float getStrength()
+    {
+        return strength;
     }
     public void getDmgPlayer(float dmg)
     {
@@ -49,6 +50,11 @@ public class controller : MonoBehaviour
 
             this.getDmgPlayer(10);
             this.knockBackPlayer();
+        }
+        if(coll.gameObject.tag == "Coin")
+        {
+            this.strength += 10;
+            Destroy(coll.gameObject);
         }
     }
     // Update is called once per frame
