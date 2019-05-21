@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class controller : MonoBehaviour
 {
     public float maxSpeed = 10f;
@@ -26,6 +27,10 @@ public class controller : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        gameObject.GetComponent<DB_update>().db_addPlayer("Vasile", 100, 50, "Player_DB");
+      
+        
+        
     }
     public void getDmgPlayer(float dmg)
     {
